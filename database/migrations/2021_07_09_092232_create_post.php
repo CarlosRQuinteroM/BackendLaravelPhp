@@ -16,9 +16,13 @@ class CreatePost extends Migration
         Schema::create('post', function (Blueprint $table) {
 
             $table->id();
+            $table->text('title');
+            $table->longText('description');
+            $table->timestamps();
+
             $table->foreignId('party_id')->references('id')->on('partys');
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->timestamps();
+           
         });
     }
 

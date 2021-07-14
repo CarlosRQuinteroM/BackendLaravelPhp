@@ -19,6 +19,12 @@ class Post extends Model
 {
     return $this->belongsTo(Party::class);
 }
+  
+    use HasFactory;
+    protected $fillable =['title' ,'description'];
+
+
+
     
 }
  

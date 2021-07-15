@@ -20,7 +20,7 @@ class CreatePost extends Migration
             $table->longText('description');
             $table->timestamps();
 
-            $table->foreignId('party_id')->references('id')->on('partys');
+            $table->foreignId('party_id')->references('id')->on('parties');
             $table->foreignId('user_id')->references('id')->on('users');
            
         });

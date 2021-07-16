@@ -37,12 +37,14 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'party_id'=> 'required',
         ]);
 
         $post = new Post();
         $post->title = $request->title;
         $post->description = $request->description;
+        $post->party_id= $request->party_id;
 
         if (auth()->user()->posts()->save($post))
             return response()->json([

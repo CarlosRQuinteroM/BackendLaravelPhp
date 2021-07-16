@@ -20,6 +20,7 @@ Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
+    //Route CRUD posts
     Route::resource('posts', PostController::class);
    
 });

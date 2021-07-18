@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassportAuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::post('login', [PassportAuthController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
     //Route CRUD posts
     Route::resource('posts', PostController::class);
+    //Route CRUD Users 
+    Route::resource('users', userController::class);
+    Route::put('users/edit/{id}', [userController::class, 'update']);
    
 });
 

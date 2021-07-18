@@ -22,7 +22,6 @@ class gameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    //FUNCION PARA VER LOS JUEGOS POR TITLE
     public function title(Request $request)
     {
         $game = Game::where('title', $request->title)->get();
@@ -50,7 +49,7 @@ class gameController extends Controller
     {
         $user = auth()->user();
 
-        if ($user->id == 25) {
+        if ($user->id == 5) {
             $this->validate($request, [
                 // 'user_id' => 'required',
                 'title' => 'required',
@@ -94,8 +93,6 @@ class gameController extends Controller
      * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-
-    //MUESTRA TODOS LOS JUEGOS PASANDO EL ID DEL USER POR PARAMS
     public function show()
     {
 
@@ -116,7 +113,7 @@ class gameController extends Controller
 
     public function allGames(Request $request)
     {
-        if ($request->isJson()) { //AQUI VALIDAMOS QUE SEA UN ARCHIVO JSON
+        if ($request->isJson()) { 
             return Game::all();
         } else {
             return response()->json(['error' => 'No acceptable'], status: 406);
@@ -137,7 +134,7 @@ class gameController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //RUTA PARA ACTUALIZAR LOS DATOS DEL JUEGO. NOMBRE Y IMAGE_URL.
+
     public function update(Request $request, Game $game, $id)
     {
         $game = Game::findOrFail($id);

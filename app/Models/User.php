@@ -48,7 +48,7 @@ class User extends Authenticatable
 
     public function party()
     {
-        return $this->hasMany(Party_User::class);
+        return $this->hasMany(PartyUser::class);
     }
     public function posts()
     {

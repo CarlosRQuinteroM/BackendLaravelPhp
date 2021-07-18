@@ -21,7 +21,7 @@ class userController extends Controller
     {
         $user = auth()->user()->find($id);
 
-        if (!$user && $id === $id) {
+        if (!$user && $id == $id) {
             return response()->json([
                 'success' => false,
                 'message' => 'Post not found '

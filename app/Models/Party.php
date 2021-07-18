@@ -2,25 +2,23 @@
 
 namespace App\Models;
 
-use GuzzleHttp\Psr7\Message;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Party extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nombre', 'games_id','user_id'
+    ];
     
-    public function message()
-    {
-        return $this->hasMany(Message::class);
-    }
     public function game()
     {
         return $this->belongsTo(Game::class);
     }
-    public function party_user()
+    public function PartyUser()
     {
-        return $this->hasMany(Party_User::class);
+        return $this->hasMany(PartyUser::class);
     }
     public function posts()
     {

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Party_User extends Model
 {
+    use HasFactory;
     public function user()
 {
     return $this->belongsTo(User::class);

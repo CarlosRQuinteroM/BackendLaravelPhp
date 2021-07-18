@@ -17,6 +17,7 @@ class CreateGames extends Migration
             $table->id();
             $table->string("title",50);
             $table->string("imagen")->unique();
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

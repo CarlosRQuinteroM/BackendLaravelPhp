@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassportAuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\gameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::middleware('auth:api')->group(function () {
     //Route CRUD Users 
     Route::resource('users', userController::class);
     Route::put('users/edit/{id}', [userController::class, 'update']);
+    //Route Crud Game
+    Route::resource('games', gameController::class);
    
 });
 

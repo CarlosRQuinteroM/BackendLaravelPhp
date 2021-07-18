@@ -7,8 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
+    use HasFactory;
+    protected $fillable = ['title', 'imagen', 'user_id'];
+
     public function party()
-{
-    return $this->hasMany(Party::class);
-}
+    {
+        return $this->hasMany(Party::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

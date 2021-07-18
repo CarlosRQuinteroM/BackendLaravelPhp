@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Party extends Model
 {
+    use HasFactory;
+    
     public function message()
     {
         return $this->hasMany(Message::class);

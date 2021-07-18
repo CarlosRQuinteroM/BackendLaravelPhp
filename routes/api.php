@@ -6,6 +6,8 @@ use App\Http\Controllers\PassportAuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\gameController;
+use App\Http\Controllers\partyController;
+use App\Http\Controllers\partyUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +26,8 @@ Route::post('login', [PassportAuthController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
     //Route CRUD posts
     Route::resource('posts', PostController::class);
-    Route::put('posts/edit/{id}', [PostController::class, 'update']);
-
+    Route::post('posts/showByUserId', [PostController::class, 'showByUserId']);
+    Route::post('posts/showByPartyId', [PostController::class, 'showByPartyId']);
 
     //Route CRUD Users 
     Route::resource('users', userController::class);
@@ -33,11 +35,23 @@ Route::middleware('auth:api')->group(function () {
 
     //Route Crud Game
     Route::resource('games', gameController::class);
-    Route::put('games/edit/{id}', [GameController::class, 'update']);
-    Route::get('games/getGameById{id}', [GameController::class, 'getGameById']);
-    Route::post('games/title', [GameController::class, 'title']);
-    Route::get('games/all', [GameController::class, 'allGames']);
-   
+    Route::put('games/edit/{id}', [gameController::class, 'update']);
+    Route::get('games/getGameById/{id}', [gameController::class, 'getGameById']);
+    Route::post('games/title', [gameController::class, 'title']);
+    Route::get('games/all', [gameController::class, 'allGames']);
+
+    //Route CRUD Party
+    Route::resource('parties', partyController::class);
+    // Route::post('parties', [partyController::class, 'index']);
+    Route::get('parties', [partyController::class, 'show']);
+    Route::post('parties/showById', [partyController::class, 'showById']);
+    Route::post('parties/showByName', [partyController::class, 'showByName']);
+
+    //Route PartyUser
+    Route::resource('partyusers', partyUserController::class);
+    // Route::get('partyusers', [partyUserController::class, 'show']);
+    Route::post('partyusers/showByUser', [partyUserController::class, 'showByUser']);
+    Route::post('partyusers/showByParty', [partyUserController::class, 'showByParty']);
 });
 
 

@@ -46,10 +46,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function message()
-    {
-        return $this->hasMany(Message::class);
-    }
     public function party()
     {
         return $this->hasMany(Party_User::class);
@@ -57,5 +53,9 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+    public function game()
+    {
+        return $this->hasMany(Game::class);
     }
 }

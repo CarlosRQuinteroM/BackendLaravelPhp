@@ -48,20 +48,25 @@ class gameController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'user_id' => 'required',
-            'title' => 'required',
-            'imagen' => 'required',
+        $user = auth()->user();
 
-        ]);
-
+        if ($user->id == 25) {
+            $this->validate($request, [
+                // 'user_id' => 'required',
+                'title' => 'required',
+                'imagen' => 'required',
+            ]);
+        }
+        
+        
         $game = Game::create([
-            'user_id' => $request->user_id,
+            // 'user_id' => $user->id,
             'title' => $request->title,
             'imagen' => $request->imagen,
         ]);
+        
 
-        if (!$game) {
+        if (!$game ) {
             return response()->json([
                 'success' => false,
                 'data' => 'Game not created'
@@ -123,10 +128,6 @@ class gameController extends Controller
      * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function edit(Game $game)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

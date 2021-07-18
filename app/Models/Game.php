@@ -14,8 +14,8 @@ class Game extends Model
     {
         return $this->hasMany(Party::class);
     }
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function user()
+    // {
+        // return $this->belongsTo(User::class);
+    // }
 }

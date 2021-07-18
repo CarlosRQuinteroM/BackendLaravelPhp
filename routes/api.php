@@ -24,15 +24,22 @@ Route::post('login', [PassportAuthController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
     //Route CRUD posts
     Route::resource('posts', PostController::class);
+    Route::put('posts/edit/{id}', [PostController::class, 'update']);
+
+
     //Route CRUD Users 
     Route::resource('users', userController::class);
     Route::put('users/edit/{id}', [userController::class, 'update']);
+
     //Route Crud Game
     Route::resource('games', gameController::class);
+    Route::put('games/edit/{id}', [GameController::class, 'update']);
+    Route::get('games/getGameById{id}', [GameController::class, 'getGameById']);
+    Route::post('games/title', [GameController::class, 'title']);
+    Route::get('games/all', [GameController::class, 'allGames']);
    
 });
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-    // return $request->user();
-// });
-// 
+
+
+

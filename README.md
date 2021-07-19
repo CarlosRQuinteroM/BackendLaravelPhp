@@ -13,7 +13,6 @@
 
 :clipboard: [Instructions](#id4)
 
-:eye_speech_bubble: [Creating the Backend](#id4)
 
 :collision: [Deploy](#id5)
 
@@ -125,6 +124,12 @@ php artisan make:controller PartyUserController --api
 ```php
 php artisan passport:install
 ```
+- registered with postman
+<img src="resources/img/register.png"
+width="800"></img>
 
+-  Login.
+<img src="resources/img/2021-07-19 (3).png"  width="800"></img>
 
-
+- Only admin cannot create games.
+<img src="resources/img/Game.png"  width="800"></img>

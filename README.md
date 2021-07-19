@@ -79,6 +79,7 @@ For example, your Steam user.
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
 ### Instructions
+<a name="id4"></a>
 
 ###### How to clone and start this repository you need to install
 - We will install
@@ -100,16 +101,30 @@ php artisan make:controller PartyController --api --model=Party
 php artisan make:model Game
 php artisan make:migration create_games
 php artisan make:controller GameController --api --model=Game
+php artisan make:migration create_partyusers
 
 ● Posts
 php artisan make:model Post
 php artisan make:migration create_Posts
-php artisan make:controller PostsController --api --model=Post
+php artisan make:controller PostsController --api --model=Posts
+
+● PartyUsers
+php artisan make:model PartyUser
+php artisan make:migration create_partyusers
+php artisan make:controller PartyUserController --api 
+--model=PartyUsers
+
 ```
 
+- After making the relationship we have a database like this.
+<img src="resources/img/ERDiagram.png"></img>
 
 
+- Once the relationships are created, we install passport
 
+```php
+php artisan passport:install
+```
 
 
 
